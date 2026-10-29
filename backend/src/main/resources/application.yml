@@ -1,0 +1,19 @@
+spring:
+  application:
+    name: sato-clinic-backend
+  datasource:
+    url: ${SPRING_DATASOURCE_URL:jdbc:mysql://localhost:3306/sato_clinic?serverTimezone=Asia/Tokyo&characterEncoding=UTF-8}
+    username: ${SPRING_DATASOURCE_USERNAME:sato_app}
+    password: ${SPRING_DATASOURCE_PASSWORD:}
+  flyway:
+    enabled: true
+  jackson:
+    default-property-inclusion: non_null
+
+mybatis:
+  configuration:
+    map-underscore-to-camel-case: true
+
+server:
+  address: 127.0.0.1
+  port: 8080

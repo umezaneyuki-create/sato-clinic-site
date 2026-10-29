@@ -7,6 +7,15 @@
       <div class="header-right"><nav class="global-nav" id="global-nav" aria-label="グローバルナビゲーション"><a href="index.html">トップ</a><a href="info.html">お知らせ</a><a href="kamoku.html">診療内容</a><a href="about.html">当院について</a><a href="access.html">診療時間・所在地</a><a href="faq.html">よくあるご質問</a></nav><a class="header-phone" href="tel:0000000000"><img src="assets/images/telno.png" alt="電話番号"></a><a class="reserve-button" href="index.html">Web予約はこちら</a></div>
     </div>`;
   }
+  const footerInner = document.querySelector('.footer-inner');
+  if (footerInner && !footerInner.querySelector('.admin-login-link')) {
+    const adminLink = document.createElement('a');
+    adminLink.className = 'admin-login-link';
+    adminLink.href = 'admin.html';
+    adminLink.textContent = '管理者ログイン';
+    footerInner.append(adminLink);
+  }
+
   const header = document.querySelector('.site-header');
   const toggle = document.querySelector('.menu-toggle');
   const navLinks = document.querySelectorAll('.global-nav a, .header-phone, .reserve-button');

@@ -1,0 +1,125 @@
+.admin-info-new-main { max-width: 1240px; padding-inline: 32px; }
+.admin-new-page-heading { display: flex; align-items: flex-start; justify-content: space-between; gap: 24px; margin-bottom: 20px; }
+.admin-new-title-block h1 { display: flex; align-items: center; gap: 12px; margin: 0; color: #102d22; font-family: "Noto Sans JP", sans-serif; font-size: clamp(30px, 3vw, 42px); font-weight: 900; letter-spacing: .04em; }
+.admin-new-title-block h1 img { width: 42px; height: 42px; object-fit: contain; }
+.admin-new-title-block p { margin: 6px 0 0 2px; color: #53645c; font-size: 16px; }
+.admin-new-top-actions { display: flex; align-items: center; gap: 12px; padding-top: 8px; }
+.admin-new-button { display: inline-flex; min-height: 50px; align-items: center; justify-content: center; gap: 10px; padding: 8px 19px; border: 2px solid var(--admin-green); border-radius: 12px; background: #fff; color: var(--admin-green); font: inherit; font-size: 16px; font-weight: 700; text-decoration: none; white-space: nowrap; cursor: pointer; }
+.admin-new-button:hover, .admin-new-button:focus-visible { background: var(--admin-mint); }
+.admin-new-button--outline span { font-size: 24px; line-height: 1; }
+.admin-new-button--primary { min-width: 154px; border-color: var(--admin-green); background: var(--admin-green); color: #fff; }
+.admin-new-button--primary:hover, .admin-new-button--primary:focus-visible { background: var(--admin-green-dark); }
+.admin-new-button--primary img { width: 25px; height: 25px; object-fit: contain; filter: brightness(0) invert(1); }
+
+.admin-news-editor { display: grid; grid-template-columns: minmax(0, 1fr) 305px; column-gap: 28px; row-gap: 0; padding: 24px 20px 20px 28px; border: 1px solid #c9f0db; border-radius: 13px; background: rgba(255, 255, 255, .92); }
+.admin-news-editor-fields { min-width: 0; }
+.admin-editor-row { display: grid; grid-template-columns: 116px 65px minmax(0, 1fr); align-items: center; gap: 10px; margin: 0 0 14px; }
+.admin-editor-label { display: contents; color: #1d2b3d; font-size: 16px; font-weight: 700; white-space: nowrap; }
+.admin-editor-row fieldset { min-width: 0; padding: 0; border: 0; }
+.admin-editor-row.admin-editor-row--status { border: 0; }
+.admin-editor-row legend.admin-editor-label { display: contents; float: none; }
+.admin-required, .admin-optional { display: inline-flex; min-width: 44px; min-height: 25px; align-items: center; justify-content: center; border-radius: 9px; background: #ffe4e4; color: #eb5252; font-size: 12px; font-weight: 700; }
+.admin-optional { background: #e9edf3; color: #607084; }
+.admin-editor-row input[type="text"], .admin-editor-row input[type="date"], .admin-editor-row input[type="url"], .admin-editor-row select, .admin-editor-row textarea { grid-column: 3; width: 100%; min-width: 0; border: 1.5px solid #d7dee8; border-radius: 10px; background: #fff; color: #27344a; font: inherit; font-size: 15px; }
+.admin-editor-row input[type="text"], .admin-editor-row input[type="date"], .admin-editor-row input[type="url"], .admin-editor-row select { height: 42px; padding: 0 14px; }
+.admin-editor-row input::placeholder, .admin-editor-row textarea::placeholder { color: #9aa5b6; }
+.admin-field-error { grid-column: 3; margin: -4px 0 0; color: #c62828; font-size: 14px; font-weight: 700; line-height: 1.45; }
+.admin-field-error[hidden] { display: none; }
+.admin-news-editor[hidden], .admin-new-page-heading[hidden], .admin-news-confirmation[hidden] { display: none; }
+.admin-news-edit-load-error { margin: 0 0 18px; padding: 14px 18px; border: 1px solid #e6a5a5; border-radius: 10px; background: #fff4f4; color: #a62323; font-weight: 700; line-height: 1.6; }
+.admin-news-edit-load-error[hidden] { display: none; }
+.admin-editor-row select { max-width: 295px; }
+.admin-editor-row--status { grid-template-columns: 116px 65px minmax(0, 1fr); margin-top: 1px; }
+.admin-status-options { grid-column: 3; display: flex; gap: 14px; }
+.admin-status-option { display: inline-flex; min-width: 116px; min-height: 44px; align-items: center; justify-content: center; gap: 10px; border: 1.5px solid #d7dee8; border-radius: 10px; color: #28354a; font-size: 15px; font-weight: 700; cursor: pointer; }
+.admin-status-option input { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; clip-path: inset(50%); }
+.admin-radio-mark { width: 21px; height: 21px; border: 2px solid #c8d0de; border-radius: 50%; background: #fff; }
+.admin-status-option:has(input:checked) { border-color: #c6f2d9; background: #dff9eb; color: var(--admin-green); }
+.admin-status-option:has(input:checked) .admin-radio-mark { border: 6px solid var(--admin-green); }
+.admin-status-option:focus-within { outline: 3px solid rgba(15, 145, 74, .25); outline-offset: 2px; }
+.admin-editor-divider { height: 1px; margin: 5px 0 22px; background: #e0e7ed; }
+.admin-editor-row--body { align-items: start; margin-bottom: 18px; }
+.admin-editor-row--body .admin-editor-label { padding-top: 8px; }
+.admin-editor-row--body textarea { min-height: 255px; padding: 11px 14px; resize: vertical; line-height: 1.75; }
+.admin-editor-row--url { margin-bottom: 14px; }
+.admin-editor-row--thumbnail { align-items: start; margin-bottom: 20px; }
+.admin-editor-row--thumbnail .admin-editor-label { padding-top: 8px; }
+.admin-upload-zone { grid-column: 3; display: flex; min-height: 70px; align-items: center; justify-content: center; gap: 14px; border: 1.5px dashed #d4dce6; border-radius: 10px; color: #4b5870; font-size: 14px; font-weight: 600; text-align: left; cursor: pointer; }
+.admin-upload-zone:hover, .admin-upload-zone:focus-within { border-color: var(--admin-green); background: #f8fffb; }
+.admin-upload-zone img { width: 37px; height: 37px; object-fit: contain; }
+.admin-upload-zone small { display: block; margin-top: 2px; color: #7c8799; font-size: 12px; font-weight: 400; }
+.admin-file-input { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; clip-path: inset(50%); }
+.admin-file-input:focus-visible + .admin-upload-zone { outline: 3px solid rgba(15, 145, 74, .25); outline-offset: 2px; }
+
+.admin-input-tips { align-self: start; margin-top: 1px; padding: 20px 20px 16px; border-radius: 13px; background: linear-gradient(120deg, #edfff5, #f3fdf7); }
+.admin-input-tips h2 { display: flex; align-items: center; gap: 10px; margin: 0 0 18px; color: #1f2d3e; font-size: 17px; font-weight: 700; }
+.admin-input-tips h2 img { width: 28px; height: 28px; object-fit: contain; }
+.admin-input-tips ol { display: grid; gap: 15px; margin: 0; padding: 0; list-style: none; }
+.admin-input-tips li { display: grid; grid-template-columns: 28px minmax(0, 1fr); align-items: start; gap: 12px; }
+.admin-input-tips li > span { display: grid; width: 28px; height: 28px; place-items: center; border-radius: 50%; background: var(--admin-green); color: #fff; font-size: 15px; font-weight: 700; }
+.admin-input-tips p { margin: 0; color: #445369; font-size: 14px; line-height: 1.65; }
+.admin-input-tips p small { color: #59687c; font-size: 12px; }
+.admin-editor-footer-actions { grid-column: 1 / -1; display: flex; justify-content: flex-end; gap: 14px; margin-top: 8px; padding-top: 20px; border-top: 1px solid #e0e7ed; }
+.admin-editor-footer-actions .admin-new-button { min-width: 132px; }
+
+.admin-news-confirmation { padding: 28px; border: 1px solid #c9f0db; border-radius: 13px; background: rgba(255, 255, 255, .94); }
+.admin-news-confirmation-heading { display: flex; align-items: center; gap: 16px; padding-bottom: 20px; border-bottom: 1px solid #e0e7ed; }
+.admin-news-confirmation-heading > img { width: 38px; height: 38px; object-fit: contain; filter: brightness(0) saturate(100%) invert(35%) sepia(89%) saturate(570%) hue-rotate(94deg) brightness(92%) contrast(95%); }
+.admin-news-confirmation-heading h2 { margin: 0; color: #102d22; font-family: "Noto Sans JP", sans-serif; font-size: 28px; font-weight: 900; }
+.admin-news-confirmation-heading p { margin: 4px 0 0; color: #53645c; font-size: 15px; }
+.admin-news-confirmation-list { margin: 20px 0 0; }
+.admin-news-confirmation-list > div { display: grid; grid-template-columns: 150px minmax(0, 1fr); gap: 18px; padding: 15px 8px; border-bottom: 1px solid #e8edf0; }
+.admin-news-confirmation-list dt { color: #53645c; font-weight: 700; }
+.admin-news-confirmation-list dd { min-width: 0; margin: 0; color: #27344a; line-height: 1.75; overflow-wrap: anywhere; white-space: pre-wrap; }
+.admin-news-confirmation-list dd.is-changed { color: #c62828; font-weight: 700; }
+.admin-news-submit-status { margin: 18px 0 0; padding: 12px 14px; border-radius: 9px; background: #edfff5; color: #176b3b; font-weight: 700; line-height: 1.6; }
+.admin-news-submit-status[data-state="error"] { background: #fff3f3; color: #b42318; }
+.admin-news-submit-status[hidden] { display: none; }
+.admin-new-button:disabled { cursor: wait; opacity: .65; }
+.admin-news-confirmation-actions { display: flex; justify-content: flex-end; gap: 14px; margin-top: 22px; }
+.admin-new-title-block h1:focus, .admin-news-confirmation-heading h2:focus { outline: 3px solid rgba(15, 145, 74, .25); outline-offset: 5px; }
+
+@media (max-width: 1200px) {
+  .admin-info-new-main { padding-inline: 22px; }
+  .admin-new-page-heading { flex-direction: column; }
+  .admin-new-top-actions { align-self: flex-end; padding-top: 0; }
+  .admin-news-editor { grid-template-columns: minmax(0, 1fr) 270px; gap: 20px; padding-inline: 20px; }
+  .admin-editor-row, .admin-editor-row--status { grid-template-columns: 100px 54px minmax(0, 1fr); gap: 8px; }
+}
+
+@media (max-width: 900px) {
+  .admin-news-editor { grid-template-columns: 1fr; }
+  .admin-input-tips { grid-row: auto; margin: 0 0 20px; }
+  .admin-editor-footer-actions { grid-column: 1; }
+}
+
+@media (max-width: 640px) {
+  .admin-info-new-main { padding: 24px 14px 38px; }
+  .admin-new-page-heading { gap: 16px; }
+  .admin-new-title-block h1 { gap: 8px; font-size: 27px; }
+  .admin-new-title-block h1 img { width: 34px; height: 34px; }
+  .admin-new-title-block p { font-size: 14px; }
+  .admin-new-top-actions { width: 100%; flex-wrap: wrap; align-self: stretch; gap: 8px; }
+  .admin-new-button { min-height: 44px; padding: 7px 11px; font-size: 13px; }
+  .admin-new-top-actions .admin-new-button { flex: 1 1 auto; }
+  .admin-new-button--primary { min-width: 116px; }
+  .admin-news-editor { padding: 18px 14px 14px; }
+  .admin-editor-row, .admin-editor-row--status { grid-template-columns: minmax(0, 1fr) auto; gap: 7px 10px; margin-bottom: 16px; }
+  .admin-editor-label { grid-column: 1; font-size: 14px; }
+  .admin-required, .admin-optional { grid-column: 2; grid-row: 1; min-height: 22px; font-size: 11px; }
+  .admin-editor-row input[type="text"], .admin-editor-row input[type="date"], .admin-editor-row input[type="url"], .admin-editor-row select, .admin-editor-row textarea, .admin-status-options, .admin-upload-zone { grid-column: 1 / -1; }
+  .admin-editor-row .admin-field-error { grid-column: 1 / -1; }
+  .admin-editor-row select { max-width: none; }
+  .admin-editor-row--body .admin-editor-label, .admin-editor-row--thumbnail .admin-editor-label { padding-top: 0; }
+  .admin-editor-row--body textarea { min-height: 220px; }
+  .admin-status-options { gap: 8px; }
+  .admin-status-option { flex: 1; min-width: 0; }
+  .admin-editor-footer-actions { flex-wrap: wrap; gap: 8px; }
+  .admin-editor-footer-actions .admin-new-button { min-width: 0; flex: 1; }
+  .admin-input-tips { padding: 16px; }
+  .admin-news-confirmation { padding: 18px 14px; }
+  .admin-news-confirmation-heading h2 { font-size: 23px; }
+  .admin-news-confirmation-list > div { grid-template-columns: 1fr; gap: 4px; padding: 12px 4px; }
+  .admin-news-confirmation-actions { flex-direction: column-reverse; gap: 8px; }
+  .admin-news-confirmation-actions .admin-new-button { width: 100%; }
+}

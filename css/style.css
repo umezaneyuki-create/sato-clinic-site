@@ -743,7 +743,101 @@ select {
 }
 
 .footer-inner {
-  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.admin-login-link {
+  color: #c4cbc7;
+  font-family: "Noto Sans JP", "Yu Gothic", YuGothic, "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
+  font-size: 13px;
+  line-height: 1.5;
+  transition: color .2s ease, text-decoration-color .2s ease;
+}
+
+.admin-login-link:hover,
+.admin-login-link:focus-visible {
+  color: #fff;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.admin-page {
+  min-height: calc(100vh - 78px);
+  padding: calc(var(--header-h) + 70px) 24px 100px;
+}
+
+.admin-panel {
+  width: min(100%, 560px);
+  margin: 0 auto;
+  padding: 34px;
+  border-radius: 30px;
+  background: rgba(139, 255, 190, .20);
+  box-shadow: 2px 2px 6px #026C32;
+}
+
+.admin-panel .section-title {
+  margin-bottom: 30px;
+}
+
+.admin-page .section-title {
+  font-family: "Noto Sans JP", "Yu Gothic", YuGothic, Meiryo, sans-serif;
+}
+
+.admin-login-form {
+  display: grid;
+  gap: 20px;
+}
+
+.admin-login-field {
+  display: grid;
+  gap: 6px;
+}
+
+.admin-login-field label {
+  color: var(--text);
+  font-family: "Noto Sans JP", "Yu Gothic", YuGothic, "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.admin-login-field input {
+  width: 100%;
+  min-height: 48px;
+  padding: 8px 12px;
+  border: 1px solid rgba(9, 138, 78, .42);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, .92);
+  color: var(--text);
+}
+
+.admin-login-field input:focus-visible {
+  outline: 3px solid rgba(10, 155, 85, .28);
+  outline-offset: 2px;
+}
+
+.admin-login-submit {
+  justify-self: center;
+  min-width: 160px;
+  min-height: 48px;
+  margin-top: 8px;
+  padding: 8px 24px;
+  border: 1px solid var(--green);
+  border-radius: 999px;
+  background: var(--green);
+  color: #fff;
+  font-family: "Noto Sans JP", "Yu Gothic", YuGothic, "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background .2s ease, color .2s ease;
+}
+
+.admin-login-submit:hover,
+.admin-login-submit:focus-visible {
+  background: #fff;
+  color: var(--green);
 }
 
 .sr-only {
@@ -1843,6 +1937,25 @@ select {
 
   .site-logo {
     width: 138px;
+  }
+
+  .footer-inner {
+    flex-direction: column;
+    justify-content: center;
+    gap: 4px;
+  }
+
+  .admin-page {
+    padding: calc(var(--header-h) + 30px) 14px 64px;
+  }
+
+  .admin-panel {
+    padding: 24px 16px;
+    border-radius: 22px;
+  }
+
+  .admin-panel .section-title {
+    margin-bottom: 24px;
   }
 
   .hero-copy h1 {

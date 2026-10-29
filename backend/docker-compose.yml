@@ -1,0 +1,36 @@
+services:
+  db:
+    image: mysql:8.0
+    ports:
+      - "127.0.0.1:3306:3306"
+    command: --default-time-zone=+09:00
+    environment:
+      MYSQL_DATABASE: sato_clinic
+      MYSQL_USER: sato_app
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD:?Set MYSQL_PASSWORD in backend/.env}
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD:?Set MYSQL_ROOT_PASSWORD in backend/.env}
+      TZ: Asia/Tokyo
+    volumes:
+      - sato-clinic-db:/var/lib/mysql
+    healthcheck:
+      test: ["CMD-SHELL", "mysqladmin ping -h localhost -uroot -p\"$${MYSQL_ROOT_PASSWORD}\" --silent"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+      start_period: 30s
+
+  api:
+    build: .
+    environment:
+      SPRING_PROFILES_ACTIVE: local
+      SPRING_DATASOURCE_URL: jdbc:mysql://db:3306/sato_clinic?serverTimezone=Asia/Tokyo&characterEncoding=UTF-8
+      SPRING_DATASOURCE_USERNAME: sato_app
+      SPRING_DATASOURCE_PASSWORD: ${MYSQL_PASSWORD:?Set MYSQL_PASSWORD in backend/.env}
+    ports:
+      - "127.0.0.1:8080:8080"
+    depends_on:
+      db:
+        condition: service_healthy
+
+volumes:
+  sato-clinic-db:
