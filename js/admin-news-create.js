@@ -149,9 +149,10 @@
       relatedUrl: form.elements.url.value.trim() || null,
       thumbnailPath: null,
     };
+    const apiBase = `${window.location.protocol}//${window.location.hostname}:8080`;
     const url = recordId
-      ? `http://localhost:8080/api/admin/news/${encodeURIComponent(recordId)}`
-      : 'http://localhost:8080/api/admin/news';
+      ? `${apiBase}/api/admin/news/${encodeURIComponent(recordId)}`
+      : `${apiBase}/api/admin/news`;
     const method = recordId ? 'PUT' : 'POST';
 
     postButton.disabled = true;
@@ -165,6 +166,7 @@
     try {
       const response = await fetch(url, {
         method,
+        credentials: 'include',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload),
         signal: controller.signal,

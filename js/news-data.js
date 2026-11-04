@@ -1,4 +1,4 @@
-const NEWS_API_BASE = 'http://localhost:8080/api';
+const NEWS_API_BASE = `${window.location.protocol}//${window.location.hostname}:8080/api`;
 
 function formatNewsDate(value) {
   const text = String(value || '').trim();
@@ -17,7 +17,10 @@ function formatNewsUpdatedAt(value) {
 }
 
 async function fetchNewsRecords(endpoint) {
-  const response = await fetch(`${NEWS_API_BASE}/${endpoint}`, { cache: 'no-store' });
+  const response = await fetch(`${NEWS_API_BASE}/${endpoint}`, {
+    cache: 'no-store',
+    credentials: 'include',
+  });
   if (!response.ok) throw new Error(`HTTP ${response.status}`);
   const records = await response.json();
   if (!Array.isArray(records)) throw new Error('API response is not a list');

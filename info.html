@@ -7,9 +7,9 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@600;700;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/style.css?v=20261102-common-header">
   <script src="js/script.js" defer></script>
-  <script src="js/news-data.js?v=20261029-1" defer></script>
+  <script src="js/news-data.js?v=20261102-1" defer></script>
   <script src="js/news-page.js?v=20261029-2" defer></script>
 </head>
 <body>
@@ -20,10 +20,13 @@
       <button class="menu-toggle" type="button" aria-controls="global-nav" aria-expanded="false"><span class="menu-toggle__line"></span><span class="menu-toggle__line"></span><span class="menu-toggle__line"></span><span class="sr-only">メニューを開く</span></button>
       <div class="header-right">
         <nav class="global-nav" id="global-nav" aria-label="グローバルナビゲーション">
-          <a href="index.html">トップ</a><a href="info.html">お知らせ</a><a href="kamoku.html">診療内容</a><a href="about.html">当院について</a><a href="access.html">診療時間・所在地</a><a href="faq.html">よくあるご質問</a>
+          <a href="index.html">トップ</a><a href="info.html">お知らせ</a><a href="kamoku.html">診療内容</a><a href="about.html">当院について</a><a href="access.html?v=20261102-common-header">診療時間・所在地</a><a href="faq.html?v=20261102-common-header">よくあるご質問</a>
         </nav>
-        <a class="header-phone" href="tel:0000000000"><img src="assets/images/telno.png" alt="電話番号 00-0000-0000"></a>
-        <a class="reserve-button" href="index.html">Web予約はこちら</a>
+        <div class="header-contact-stack">
+          <a class="header-phone" href="tel:0000000000"><img class="header-contact-icon" src="assets/images/phone.svg" alt=""><img src="assets/images/telno.png" alt="電話番号 00-0000-0000"></a>
+          <a class="header-inquiry-button" href="inquiry.html"><span class="header-inquiry-icon"><img src="assets/images/mail.svg" alt=""></span><span>メールで問い合わせる</span></a>
+        </div>
+        <a class="reserve-button" href="booking.html">Web予約はこちら</a>
       </div>
     </div>
   </header>

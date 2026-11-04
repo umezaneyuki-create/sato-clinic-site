@@ -16,7 +16,7 @@
 .admin-editor-row { display: grid; grid-template-columns: 116px 65px minmax(0, 1fr); align-items: center; gap: 10px; margin: 0 0 14px; }
 .admin-editor-label { display: contents; color: #1d2b3d; font-size: 16px; font-weight: 700; white-space: nowrap; }
 .admin-editor-row fieldset { min-width: 0; padding: 0; border: 0; }
-.admin-editor-row.admin-editor-row--status { border: 0; }
+.admin-editor-row.admin-editor-row--status { min-width: 0; padding: 0; border: 0; }
 .admin-editor-row legend.admin-editor-label { display: contents; float: none; }
 .admin-required, .admin-optional { display: inline-flex; min-width: 44px; min-height: 25px; align-items: center; justify-content: center; border-radius: 9px; background: #ffe4e4; color: #eb5252; font-size: 12px; font-weight: 700; }
 .admin-optional { background: #e9edf3; color: #607084; }

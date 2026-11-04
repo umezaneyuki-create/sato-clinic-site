@@ -9,8 +9,9 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/admin.css?v=20260910-1">
-  <script src="js/news-data.js?v=20261029-1" defer></script>
-  <script src="js/admin-home-news.js?v=20261029-1" defer></script>
+  <script src="js/news-data.js?v=20261102-1" defer></script>
+  <script src="js/admin-auth.js" defer></script>
+  <script src="js/admin-home-news.js?v=20261102-1" defer></script>
 </head>
 <body class="admin-dashboard">
   <div class="admin-layout">
@@ -22,7 +23,7 @@
 
       <nav class="admin-sidebar-nav">
         <section class="admin-nav-group">
-          <a class="admin-nav-heading is-active" href="admin-info.html">
+          <a class="admin-nav-heading" href="admin-info.html">
             <svg class="admin-nav-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 9v6h4l5 4V5L7 9H3Zm12.5 1.1a4 4 0 0 1 0 3.8M17.7 7.3a8 8 0 0 1 0 9.4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
             <span>お知らせ管理</span>
           </a>
@@ -35,18 +36,19 @@
         </section>
 
         <section class="admin-nav-group">
-          <a class="admin-nav-heading is-active" href="#recent-inquiries">
+          <a class="admin-nav-heading" href="admin-inquiry.html">
             <svg class="admin-nav-icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2" fill="none" stroke="currentColor" stroke-width="2"/><path d="m4 7 8 6 8-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
             <span>問い合わせ管理</span>
           </a>
           <div class="admin-nav-items">
-            <a href="#recent-inquiries"><span class="admin-dot"></span>問い合わせ一覧</a>
-            <a href="#recent-inquiries"><span class="admin-dot"></span>対応状況管理</a>
+            <a href="admin-inquiry.html#inquiry-list"><span class="admin-dot"></span>問い合わせ一覧</a>
+            <a href="admin-inquiry.html#inquiry-list"><span class="admin-dot"></span>送信済みメッセージ</a>
+            <a href="admin-inquiry.html#inquiry-list"><span class="admin-dot"></span>削除済みメッセージ</a>
           </div>
         </section>
 
         <section class="admin-nav-group">
-          <a class="admin-nav-heading is-active" href="#today-reservations">
+          <a class="admin-nav-heading" href="#today-reservations">
             <svg class="admin-nav-icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="5" width="16" height="15" rx="2" fill="none" stroke="currentColor" stroke-width="2"/><path d="M8 3v4M16 3v4M4 9h16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M8 13h3v3H8z" fill="currentColor"/></svg>
             <span>予約管理</span>
           </a>
@@ -113,7 +115,7 @@
 
         <div class="admin-bottom-grid">
           <section class="admin-panel" id="recent-inquiries" aria-labelledby="recent-inquiries-title">
-            <div class="admin-panel-heading"><h2 id="recent-inquiries-title"><span class="admin-panel-icon admin-panel-icon--mail">✉</span>最近の問い合わせ</h2><a class="admin-panel-link" href="#recent-inquiries">すべて見る　›</a></div>
+            <div class="admin-panel-heading"><h2 id="recent-inquiries-title"><span class="admin-panel-icon admin-panel-icon--mail">✉</span>最近の問い合わせ</h2><a class="admin-panel-link" href="admin-inquiry.html">すべて見る　›</a></div>
             <div class="admin-table-wrap"><table class="admin-table admin-table--compact"><thead><tr><th>受信日時</th><th>お名前</th><th>件名</th><th>対応状況</th></tr></thead><tbody>
               <tr><td>2025/06/20 09:15</td><td>山田 花子 様</td><td>健診についての質問</td><td><span class="admin-status is-unhandled">未対応</span></td></tr>
               <tr><td>2025/06/19 16:30</td><td>鈴木 一郎 様</td><td>予約の変更について</td><td><span class="admin-status is-progress">対応中</span></td></tr>

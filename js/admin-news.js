@@ -231,6 +231,7 @@
       const targetStatus = record.status === '公開' ? '非公開' : '公開';
       const response = await fetch(`${NEWS_API_BASE}/admin/news/${encodeURIComponent(record.id)}`, {
         method: 'PUT',
+        credentials: 'include',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           title: record.title,

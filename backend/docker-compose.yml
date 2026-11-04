@@ -1,4 +1,14 @@
 services:
+  web:
+    build:
+      context: ..
+      dockerfile: Dockerfile.web
+    ports:
+      - "127.0.0.1:4173:80"
+    depends_on:
+      api:
+        condition: service_started
+
   db:
     image: mysql:8.0
     ports:
@@ -26,11 +36,25 @@ services:
       SPRING_DATASOURCE_URL: jdbc:mysql://db:3306/sato_clinic?serverTimezone=Asia/Tokyo&characterEncoding=UTF-8
       SPRING_DATASOURCE_USERNAME: sato_app
       SPRING_DATASOURCE_PASSWORD: ${MYSQL_PASSWORD:?Set MYSQL_PASSWORD in backend/.env}
+      ADMIN_USERNAME: ${ADMIN_USERNAME:-admin}
+      ADMIN_PASSWORD: ${ADMIN_PASSWORD:-clinic-demo-change-me}
+      CLINIC_NOTIFICATION_EMAIL: info@sato-clinic-test.jp
+      MAIL_HOST: mailpit
+      MAIL_PORT: 1025
     ports:
       - "127.0.0.1:8080:8080"
     depends_on:
       db:
         condition: service_healthy
+      mailpit:
+        condition: service_started
+
+  mailpit:
+    image: axllent/mailpit:latest
+    ports:
+      - "127.0.0.1:8025:8025"
+    expose:
+      - "1025"
 
 volumes:
   sato-clinic-db:

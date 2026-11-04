@@ -8,6 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css?v=20260910">
+  <script src="js/admin-login.js" defer></script>
   <script src="js/script.js" defer></script>
 </head>
 <body>
@@ -30,9 +31,10 @@
     <section class="admin-panel" aria-labelledby="admin-title">
       <h1 class="section-title" id="admin-title"><img class="leaf-mark" src="assets/images/reaf.png" alt=""><span class="section-title__text">管理者ログイン</span></h1>
       <form class="admin-login-form" action="#" method="post">
-        <div class="admin-login-field"><label for="admin-id">ID</label><input id="admin-id" name="id" type="text" autocomplete="username" required></div>
+        <div class="admin-login-field"><label for="admin-id">ID</label><input id="admin-id" name="username" type="text" autocomplete="username" required></div>
         <div class="admin-login-field"><label for="admin-password">パスワード</label><input id="admin-password" name="password" type="password" autocomplete="current-password" required></div>
         <button class="admin-login-submit" type="submit">ログイン</button>
+        <p id="admin-login-message" class="admin-login-message" role="status" aria-live="polite" hidden></p>
       </form>
     </section>
   </main>

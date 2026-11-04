@@ -7,7 +7,7 @@
   --muted: #5f685f;
   --white: #ffffff;
   --border: rgba(9, 138, 78, 0.28);
-  --header-h: 76px;
+  --header-h: 81px;
   --radius-lg: 28px;
   --radius-md: 20px;
   --shadow: 0 12px 34px rgba(45, 92, 65, 0.08);
@@ -150,17 +150,77 @@ select {
   color: var(--green);
 }
 
-.header-phone {
-  display: inline-flex;
+.header-contact-stack {
+  display: grid;
+  flex: 0 0 188px;
+  grid-template-rows: calc(50% - 2.5px) calc(50% + 2.5px);
+  height: calc(100% - 5px);
+  margin-bottom: 5px;
+  min-width: 0;
+}
+
+.header-phone,
+.header-inquiry-button {
+  display: flex;
+  min-width: 0;
   align-items: center;
-  flex: 0 0 auto;
+  justify-content: center;
+  gap: 7px;
   white-space: nowrap;
+}
+
+.header-phone {
+  flex: 0 0 auto;
 }
 
 .header-phone img {
   display: block;
-  width: 225px;
+  width: 145px;
+  max-width: 100%;
   height: auto;
+}
+
+.header-phone .header-contact-icon {
+  width: 17px;
+  height: 17px;
+  flex: 0 0 auto;
+}
+
+.header-inquiry-button {
+  gap: 6px;
+  padding: 0 8px;
+  border: 1px solid #fff;
+  border-radius: 999px;
+  background: var(--green);
+  color: #fff;
+  font-size: 13px;
+  font-weight: 700;
+  transition: background-color .2s ease, box-shadow .2s ease;
+}
+
+.header-inquiry-button:hover {
+  background: var(--green-dark);
+}
+
+.header-inquiry-button:focus-visible,
+.header-phone:focus-visible {
+  outline: 3px solid rgba(10, 155, 85, .35);
+  outline-offset: 2px;
+}
+
+.header-inquiry-icon {
+  display: grid;
+  width: 21px;
+  height: 21px;
+  flex: 0 0 auto;
+  place-items: center;
+}
+
+.header-inquiry-icon img {
+  display: block;
+  width: 21px;
+  height: 21px;
+  filter: brightness(0) invert(1);
 }
 
 .reserve-button {
@@ -838,6 +898,27 @@ select {
 .admin-login-submit:focus-visible {
   background: #fff;
   color: var(--green);
+}
+
+.admin-login-message {
+  margin: 0;
+  color: #9f2f36;
+  line-height: 1.7;
+  text-align: center;
+}
+
+.admin-session-error {
+  position: fixed;
+  z-index: 10000;
+  top: 8px;
+  right: 12px;
+  max-width: min(560px, calc(100vw - 24px));
+  margin: 0;
+  padding: 12px 16px;
+  border: 1px solid #c64b53;
+  border-radius: 8px;
+  background: #fff0f0;
+  color: #8f252c;
 }
 
 .sr-only {
@@ -1566,7 +1647,7 @@ select {
 
 @media (max-width: 1120px) {
   :root {
-    --header-h: 68px;
+    --header-h: 73px;
   }
 
   .header-inner {
@@ -1582,8 +1663,16 @@ select {
     padding-inline: 7px;
   }
 
+  .header-contact-stack {
+    flex-basis: 176px;
+  }
+
+  .header-inquiry-button {
+    font-size: 12px;
+  }
+
   .header-phone img {
-    width: 170px;
+    width: 129px;
   }
 
   .reserve-button {
@@ -1634,7 +1723,15 @@ select {
     display: none;
   }
 
+  .header-contact-stack {
+    height: auto;
+    grid-template-rows: auto auto;
+    margin: 12px 0 5px;
+    gap: 8px;
+  }
+
   .header-phone,
+  .header-inquiry-button,
   .reserve-button {
     display: flex;
     justify-content: center;
@@ -1643,8 +1740,23 @@ select {
     margin-top: 12px;
   }
 
+  .header-phone,
+  .header-inquiry-button {
+    margin-top: 0;
+    border-radius: 10px;
+  }
+
+  .header-phone {
+    border: 1px solid var(--border);
+    background: #fff;
+  }
+
   .header-phone img {
     width: 180px;
+  }
+
+  .header-inquiry-button {
+    font-size: 15px;
   }
 
   .reserve-button {

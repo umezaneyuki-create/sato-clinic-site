@@ -7,7 +7,24 @@
     const published = records.filter((record) => record.status === '公開');
     if (publicCount) publicCount.textContent = String(published.length);
     body.replaceChildren();
-    records.slice(0, 5).forEach((record) => {
+    const recentRecords = [...records].sort((a, b) => {
+      const dateOrder = String(b.date || '').replace(/[./]/g, '-').localeCompare(
+        String(a.date || '').replace(/[./]/g, '-'),
+      );
+      return dateOrder || String(b.updatedAt || '').localeCompare(String(a.updatedAt || ''));
+    }).slice(0, 5);
+
+    if (recentRecords.length === 0) {
+      const row = document.createElement('tr');
+      const cell = document.createElement('td');
+      cell.colSpan = 6;
+      cell.textContent = '表示できるお知らせがありません。';
+      row.append(cell);
+      body.append(row);
+      return;
+    }
+
+    recentRecords.forEach((record) => {
       const row = document.createElement('tr');
       [record.date.replaceAll('.', '/'), record.title, record.category].forEach((value) => {
         const cell = document.createElement('td');

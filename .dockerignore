@@ -1,0 +1,11 @@
+.git
+.codex
+.agents
+backend/.env
+backend/target
+docs
+*.png
+!assets/**/*.png
+*.md
+!README.md
+!AGENTS.md

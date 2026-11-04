@@ -1,2 +1,15 @@
 server:
   address: 0.0.0.0
+
+spring:
+  sql:
+    init:
+      mode: always
+      data-locations: classpath:db/local-data.sql
+  mail:
+    host: ${MAIL_HOST:localhost}
+    port: ${MAIL_PORT:1025}
+
+clinic:
+  inquiry:
+    mail-enabled: true

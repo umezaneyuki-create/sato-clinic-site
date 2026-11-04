@@ -1,10 +1,10 @@
-﻿(() => {
+(() => {
   const existingHeader = document.querySelector('.site-header');
   if (existingHeader && !existingHeader.querySelector('.menu-toggle')) {
     existingHeader.innerHTML = `<div class="header-inner">
       <a class="site-logo" href="index.html" aria-label="菴占陸蛹ｻ髯｢ 繝医ャ繝励∈"><img src="assets/images/logo.png" alt="菴占陸蛹ｻ髯｢ Sato Clinic"></a>
       <button class="menu-toggle" type="button" aria-controls="global-nav" aria-expanded="false"><span class="menu-toggle__line"></span><span class="menu-toggle__line"></span><span class="menu-toggle__line"></span><span class="sr-only">繝｡繝九Η繝ｼ繧帝幕縺・/span></button>
-      <div class="header-right"><nav class="global-nav" id="global-nav" aria-label="グローバルナビゲーション"><a href="index.html">トップ</a><a href="info.html">お知らせ</a><a href="kamoku.html">診療内容</a><a href="about.html">当院について</a><a href="access.html">診療時間・所在地</a><a href="faq.html">よくあるご質問</a></nav><a class="header-phone" href="tel:0000000000"><img src="assets/images/telno.png" alt="電話番号"></a><a class="reserve-button" href="index.html">Web予約はこちら</a></div>
+      <div class="header-right"><nav class="global-nav" id="global-nav" aria-label="グローバルナビゲーション"><a href="index.html">トップ</a><a href="info.html">お知らせ</a><a href="kamoku.html">診療内容</a><a href="about.html">当院について</a><a href="access.html">診療時間・所在地</a><a href="faq.html">よくあるご質問</a></nav><a class="header-phone" href="tel:0000000000"><img src="assets/images/telno.png" alt="電話番号"></a><a class="reserve-button" href="booking.html">Web予約はこちら</a></div>
     </div>`;
   }
   const footerInner = document.querySelector('.footer-inner');

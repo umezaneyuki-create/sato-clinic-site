@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="佐藤医院へのお問い合わせフォームです。">
+  <title>お問い合わせ | 佐藤医院</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;600;700&family=Noto+Serif+JP:wght@600;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css?v=20261102-common-header">
+  <link rel="stylesheet" href="css/inquiry-form.css?v=20261102-submit-button">
+  <script src="js/script.js" defer></script>
+  <script src="js/public-inquiry.js?v=20261102-success-layout" defer></script>
+</head>
+<body>
+  <div class="site-bg" aria-hidden="true"></div>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="site-logo" href="index.html"><img src="assets/images/logo.png" alt="佐藤医院 Sato Clinic"></a>
+      <button class="menu-toggle" type="button" aria-controls="global-nav" aria-expanded="false"><span class="menu-toggle__line"></span><span class="menu-toggle__line"></span><span class="menu-toggle__line"></span><span class="sr-only">メニュー</span></button>
+      <div class="header-right">
+        <nav class="global-nav" id="global-nav" aria-label="グローバルナビゲーション">
+          <a href="index.html">トップ</a><a href="info.html">お知らせ</a><a href="kamoku.html">診療内容</a><a href="about.html">当院について</a><a href="access.html?v=20261102-common-header">診療時間・所在地</a><a href="faq.html?v=20261102-common-header">よくあるご質問</a>
+        </nav>
+        <div class="header-contact-stack">
+          <a class="header-phone" href="tel:0000000000"><img class="header-contact-icon" src="assets/images/phone.svg" alt=""><img src="assets/images/telno.png" alt="電話番号 00-0000-0000"></a>
+          <a class="header-inquiry-button" href="inquiry.html"><span class="header-inquiry-icon"><img src="assets/images/mail.svg" alt=""></span><span>メールで問い合わせる</span></a>
+        </div>
+        <a class="reserve-button" href="booking.html">Web予約はこちら</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="inquiry-form-page">
+    <h1 class="section-title"><img class="leaf-mark" src="assets/images/reaf.png" alt=""><span class="section-title__text">お問い合わせ</span></h1>
+    <p class="inquiry-form-lead">お問い合わせ内容をご入力ください。お急ぎの場合は、お電話（00-0000-0000）でお問い合わせください。</p>
+    <div class="inquiry-success-content">
+      <p class="inquiry-form-status" id="inquiry-form-status" role="status" aria-live="polite" hidden></p>
+      <div class="inquiry-success-actions" id="inquiry-success-actions" hidden>
+        <a class="outline-button" href="index.html">ホームページに戻る<img class="button-arrow" src="assets/images/Polygon 1.png" alt=""></a>
+      </div>
+    </div>
+
+    <form class="inquiry-form-card" id="public-inquiry-form" novalidate>
+      <div class="inquiry-form-field"><label for="inquiry-name">氏名 <span>必須</span></label><input id="inquiry-name" name="name" autocomplete="name" maxlength="120" required><small class="field-error" data-error="name"></small></div>
+      <div class="inquiry-form-field"><label for="inquiry-email">メールアドレス <span>必須</span></label><input id="inquiry-email" name="email" type="email" autocomplete="email" maxlength="254" required><small class="field-error" data-error="email"></small></div>
+      <div class="inquiry-form-field"><label for="inquiry-phone">電話番号 <span class="optional">任意</span></label><input id="inquiry-phone" name="phone" type="tel" autocomplete="tel" maxlength="32"></div>
+      <div class="inquiry-form-field"><label for="inquiry-category">お問い合わせ種別 <span>必須</span></label><select id="inquiry-category" name="category" required><option value="">選択してください</option><option>診療について</option><option>予防接種</option><option>健康診断</option><option>予約について</option><option>その他</option></select><small class="field-error" data-error="category"></small></div>
+      <div class="inquiry-form-field"><label for="inquiry-subject">件名 <span>必須</span></label><input id="inquiry-subject" name="subject" maxlength="200" required><small class="field-error" data-error="subject"></small></div>
+      <div class="inquiry-form-field"><label for="inquiry-content">お問い合わせ本文 <span>必須</span></label><textarea id="inquiry-content" name="content" rows="3" maxlength="10000" required></textarea><small class="field-error" data-error="content"></small></div>
+      <div class="inquiry-honeypot" aria-hidden="true"><label for="inquiry-website">Website</label><input id="inquiry-website" name="website" tabindex="-1" autocomplete="off"></div>
+      <div class="inquiry-consent"><label><input type="checkbox" name="consent" required><span><a href="privacy-policy.html" target="_blank" rel="noopener">プライバシーポリシー</a>を確認し、個人情報の取扱いに同意します。</span></label><small class="field-error" data-error="consent"></small></div>
+      <div class="inquiry-form-actions"><button class="outline-button" type="submit">入力内容を送信<img class="button-arrow" src="assets/images/Polygon 1.png" alt=""></button></div>
+      <p class="inquiry-form-footnote">送信後、受付完了メールが自動送信されます。返信には時間がかかる場合があります。急ぎの相談は電話窓口をご利用ください。</p>
+    </form>
+  </main>
+
+  <footer class="site-footer"><div class="container footer-inner"><small>© 2026 佐藤医院. All Rights Reserved.</small><a href="privacy-policy.html">プライバシーポリシー</a></div></footer>
+</body>
+</html>
