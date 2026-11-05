@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="予約受付完了画面です。">
+  <title>予約受付完了 | 佐藤医院</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700;800&family=Noto+Serif+JP:wght@600;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css?v=20261102-common-header">
+  <link rel="stylesheet" href="css/booking.css?v=20261105-8">
+  <link rel="stylesheet" href="css/booking-flow.css?v=15">
+  <script src="js/script.js" defer></script>
+  <script src="js/booking-flow.js?v=4" defer></script>
+</head>
+<body class="booking-page booking-flow-page booking-complete-page">
+  <div class="site-bg" aria-hidden="true"></div>
+  <header class="site-header" id="top">
+    <div class="header-inner">
+      <a class="site-logo" href="index.html" aria-label="佐藤医院 トップへ"><img src="assets/images/logo.png" alt="佐藤医院 Sato Clinic"></a>
+      <button class="menu-toggle" type="button" aria-controls="global-nav" aria-expanded="false"><span class="menu-toggle__line"></span><span class="menu-toggle__line"></span><span class="menu-toggle__line"></span><span class="sr-only">メニューを開く</span></button>
+      <div class="header-right">
+        <nav class="global-nav" id="global-nav" aria-label="グローバルナビゲーション"><a href="index.html">トップ</a><a href="info.html">お知らせ</a><a href="kamoku.html">診療内容</a><a href="about.html">当院について</a><a href="access.html?v=20261102-common-header">診療時間・所在地</a><a href="faq.html?v=20261102-common-header">よくあるご質問</a></nav>
+        <div class="header-contact-stack"><a class="header-phone" href="tel:0000000000"><img class="header-contact-icon" src="assets/images/phone.svg" alt=""><img src="assets/images/telno.png" alt="電話番号 00-0000-0000"></a><a class="header-inquiry-button" href="inquiry.html"><span class="header-inquiry-icon"><img src="assets/images/mail.svg" alt=""></span><span>メールでお問い合わせ</span></a></div>
+        <a class="reserve-button" href="booking.html" aria-current="page">Web予約はこちら</a>
+      </div>
+    </div>
+  </header>
+  <main class="booking-main booking-flow-main">
+    <section class="booking-intro" aria-labelledby="booking-complete-title">
+      <ol class="booking-steps" aria-label="予約の流れ">
+        <li><span class="booking-step-icon" aria-hidden="true"><img src="assets/images/icon-calendar-check.png" alt=""></span><span class="booking-step-number">1</span><span class="booking-step-label">予約種別を選ぶ</span></li>
+        <li><span class="booking-step-icon" aria-hidden="true"><img src="assets/images/icon-calendar-clock.png" alt=""></span><span class="booking-step-number">2</span><span class="booking-step-label">日時を選ぶ</span></li>
+        <li><span class="booking-step-icon" aria-hidden="true"><img src="assets/images/icon-pencil.png" alt=""></span><span class="booking-step-number">3</span><span class="booking-step-label">情報を入力</span></li>
+        <li class="is-current" aria-current="step"><span class="booking-step-icon" aria-hidden="true"><img src="assets/images/checkcircle.png" alt=""></span><span class="booking-step-number">4</span><span class="booking-step-label">予約の管理</span></li>
+      </ol>
+      <div class="booking-heading"><h1 id="booking-complete-title">予約受付完了</h1><p class="booking-lead" id="booking-type-label">診療予約（一般診療・再診）</p></div>
+    </section>
+    <section class="booking-flow-panel booking-complete-panel" aria-labelledby="completion-card-title">
+      <div class="booking-flow-card booking-complete-card">
+        <h2 class="booking-flow-card-title" id="completion-card-title">予約内容</h2>
+        <dl class="booking-summary-list">
+          <div><dt>予約番号</dt><dd id="completion-reference">—</dd></div>
+          <div><dt>お名前</dt><dd id="completion-name">—</dd></div>
+          <div><dt>予約種別</dt><dd id="summary-type">—</dd></div>
+          <div><dt>受診区分</dt><dd id="summary-visit">—</dd></div>
+          <div><dt>診療日</dt><dd id="summary-date">—</dd></div>
+          <div><dt>時間帯</dt><dd id="summary-band">—</dd></div>
+          <div><dt>予約時間</dt><dd id="summary-time">—</dd></div>
+        </dl>
+      </div>
+      <div class="booking-flow-actions"><a class="booking-flow-primary booking-complete-home" href="index.html">トップページへ戻る</a></div>
+    </section>
+  </main>
+  <footer class="site-footer"><div class="container footer-inner"><small>© 2026 佐藤医院. All Rights Reserved.</small><a href="privacy-policy.html">プライバシーポリシー</a></div></footer>
+</body>
+</html>

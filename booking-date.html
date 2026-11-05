@@ -9,9 +9,9 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700;800&family=Noto+Serif+JP:wght@600;700;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css?v=20261102-common-header">
-  <link rel="stylesheet" href="css/booking.css?v=20261102-9">
+  <link rel="stylesheet" href="css/booking.css?v=20261105-7">
   <script src="js/script.js" defer></script>
-  <script src="js/booking-date.js" defer></script>
+  <script src="js/booking-date.js?v=20261105-4" defer></script>
 </head>
 <body class="booking-page">
   <div class="site-bg" aria-hidden="true"></div>
@@ -83,29 +83,31 @@
             <h3 id="booking-month-label" aria-live="polite"></h3>
             <button class="booking-month-button" id="booking-month-next" type="button" aria-label="次の月">›</button>
           </div>
-          <div class="booking-weekdays" aria-hidden="true">
-            <span>日</span><span>月</span><span>火</span><span>水</span><span>木</span><span>金</span><span>土</span>
-          </div>
-          <div class="booking-calendar-days" id="booking-calendar-days" role="group" aria-label="予約日"></div>
+        <table class="booking-calendar-table" aria-label="予約日カレンダー">
+          <thead><tr><th scope="col">日</th><th scope="col">月</th><th scope="col">火</th><th scope="col">水</th><th scope="col">木</th><th scope="col">金</th><th scope="col">土</th></tr></thead>
+          <tbody class="booking-calendar-days" id="booking-calendar-days"></tbody>
+        </table>
         </div>
 
         <div class="booking-time-panel">
+          <p class="booking-selected-date" id="booking-selected-date" aria-live="polite">日付未選択</p>
           <label class="booking-time-label" for="booking-time-band">時間帯を選択してください</label>
           <select id="booking-time-band" name="time-band">
             <option value="am">午前（9:00〜12:00）</option>
             <option value="pm">午後（13:00〜18:00）</option>
           </select>
           <div class="booking-time-slots" id="booking-time-slots" role="group" aria-label="予約時間"></div>
-          <div class="booking-time-legend" aria-label="時間枠の凡例">
-            <span><i class="is-available" aria-hidden="true"></i>選択できます</span>
-            <span><i class="is-unavailable" aria-hidden="true"></i>選択できません（満員・受付終了）</span>
+          <div class="booking-time-symbol-legend" aria-label="予約状況記号の説明">
+            <span><span class="booking-time-status is-available" aria-hidden="true">○</span>：選択できます</span>
+            <span><span class="booking-time-status is-limited" aria-hidden="true">△</span>：選択できます（残り枠わずか）</span>
+            <span><span class="booking-time-status is-unavailable" aria-hidden="true">×</span>：選択できません（満員・受付終了）</span>
           </div>
         </div>
       </div>
 
       <div class="booking-date-actions">
         <a class="booking-date-back" href="booking.html">戻る</a>
-        <button class="booking-date-next" type="button" disabled>次へ（予約情報の入力）<span aria-hidden="true">›</span></button>
+        <button class="booking-date-next" type="button" disabled>次へ（予約情報の入力）<span aria-hidden="true">➧</span></button>
       </div>
     </section>
   </main>

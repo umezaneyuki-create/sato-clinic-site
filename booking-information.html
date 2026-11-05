@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="佐藤医院のWeb予約で患者さまの情報を入力する画面です。">
+  <title>情報の入力 | 佐藤医院</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700;800&family=Noto+Serif+JP:wght@600;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css?v=20261102-common-header">
+  <link rel="stylesheet" href="css/booking.css?v=20261105-8">
+  <link rel="stylesheet" href="css/booking-flow.css?v=12">
+  <script src="js/script.js" defer></script>
+  <script src="js/booking-flow.js?v=3" defer></script>
+</head>
+<body class="booking-page booking-flow-page booking-information-page">
+  <div class="site-bg" aria-hidden="true"></div>
+  <header class="site-header" id="top"><div class="header-inner">
+    <a class="site-logo" href="index.html" aria-label="佐藤医院 トップへ"><img src="assets/images/logo.png" alt="佐藤医院 Sato Clinic"></a>
+    <button class="menu-toggle" type="button" aria-controls="global-nav" aria-expanded="false"><span class="menu-toggle__line"></span><span class="menu-toggle__line"></span><span class="menu-toggle__line"></span><span class="sr-only">メニューを開く</span></button>
+    <div class="header-right"><nav class="global-nav" id="global-nav" aria-label="グローバルナビゲーション"><a href="index.html">トップ</a><a href="info.html">お知らせ</a><a href="kamoku.html">診療内容</a><a href="about.html">当院について</a><a href="access.html?v=20261102-common-header">診療時間・所在地</a><a href="faq.html?v=20261102-common-header">よくあるご質問</a></nav>
+      <div class="header-contact-stack"><a class="header-phone" href="tel:0000000000"><img class="header-contact-icon" src="assets/images/phone.svg" alt=""><img src="assets/images/telno.png" alt="電話番号 00-0000-0000"></a><a class="header-inquiry-button" href="inquiry.html"><span class="header-inquiry-icon"><img src="assets/images/mail.svg" alt=""></span><span>メールでお問い合わせ</span></a></div>
+      <a class="reserve-button" href="booking.html" aria-current="page">Web予約はこちら</a>
+    </div>
+  </div></header>
+  <main class="booking-main booking-flow-main">
+    <section class="booking-intro" aria-labelledby="booking-flow-title">
+      <ol class="booking-steps" aria-label="予約の流れ">
+        <li><span class="booking-step-icon" aria-hidden="true"><img src="assets/images/icon-calendar-check.png" alt=""></span><span class="booking-step-number">1</span><span class="booking-step-label">予約種別を選ぶ</span></li>
+        <li><span class="booking-step-icon" aria-hidden="true"><img src="assets/images/icon-calendar-clock.png" alt=""></span><span class="booking-step-number">2</span><span class="booking-step-label">日時を選ぶ</span></li>
+        <li class="is-current" aria-current="step"><span class="booking-step-icon" aria-hidden="true"><img src="assets/images/icon-pencil.png" alt=""></span><span class="booking-step-number">3</span><span class="booking-step-label">情報を入力</span></li>
+        <li><span class="booking-step-icon" aria-hidden="true"><img src="assets/images/checkcircle.png" alt=""></span><span class="booking-step-number">4</span><span class="booking-step-label">予約の管理</span></li>
+      </ol>
+      <div class="booking-heading"><h1 id="booking-flow-title">情報の入力</h1><p class="booking-lead" id="booking-type-label">診療予約（一般診療・再診）</p></div>
+    </section>
+    <section class="booking-flow-panel" aria-label="予約内容と患者情報">
+      <div class="booking-information-layout">
+        <div class="booking-flow-card booking-summary-card">
+          <h2 class="booking-flow-card-title">予約内容の確認</h2>
+          <dl class="booking-summary-list">
+            <div><dt>予約種別</dt><dd id="summary-type">診療予約</dd></div>
+            <div><dt>受診区分</dt><dd id="summary-visit">再診</dd></div>
+            <div><dt>診療日</dt><dd id="summary-date">未選択</dd></div>
+            <div><dt>時間帯</dt><dd id="summary-band">未選択</dd></div>
+            <div><dt>予約時間</dt><dd id="summary-time">未選択</dd></div>
+          </dl>
+          <section class="booking-guidance" aria-labelledby="booking-guidance-title">
+            <h3 id="booking-guidance-title">ご来院にあたってのお願い</h3>
+            <div class="booking-guidance-row"><strong>来院時のお願い</strong><ul><li>予約時間の5～10分前を目安にご来院ください。</li><li>体調の変化や、予約の変更・キャンセルはお早めにご連絡ください。</li></ul></div>
+            <div class="booking-guidance-row"><strong>持ち物</strong><ul><li>健康保険証（またはマイナンバーカード）</li><li>診察券（お持ちの方）</li><li>お薬手帳（お持ちの方）</li></ul></div>
+          </section>
+        </div>
+        <form class="booking-flow-card booking-patient-card" id="patient-form">
+          <h2 class="booking-flow-card-title">患者さまの情報を入力してください</h2>
+          <div class="booking-form-row"><label for="patient-name">お名前</label><span class="booking-required">必須</span><input id="patient-name" name="name" autocomplete="name" placeholder="例：佐藤 太郎" required></div>
+          <div class="booking-form-row"><label for="patient-kana">ふりがな</label><span class="booking-required">必須</span><input id="patient-kana" name="kana" autocomplete="off" placeholder="例：さとう たろう" required></div>
+          <div class="booking-form-row"><label for="patient-email">メールアドレス</label><span class="booking-required">必須</span><input id="patient-email" name="email" type="email" autocomplete="email" placeholder="例：sato@example.com" required></div>
+          <div class="booking-form-row booking-form-row-phone"><label for="patient-phone">電話番号</label><span class="booking-required">必須</span><div><input id="patient-phone" name="phone" type="tel" autocomplete="tel" placeholder="例：03-1234-5678" required><small>※日中に連絡がつきやすい電話番号をご入力ください。</small></div></div>
+          <fieldset class="booking-form-row booking-form-row-birthday"><legend>生年月日</legend><span class="booking-required">必須</span><div class="booking-select-group"><select name="birthYear" aria-label="生年月日（年）" required><option value="">年</option></select><select name="birthMonth" aria-label="生年月日（月）" required><option value="">月</option></select><select name="birthDay" aria-label="生年月日（日）" required><option value="">日</option></select></div></fieldset>
+          <fieldset class="booking-form-row booking-form-row-choice"><legend>性別</legend><span class="booking-required">必須</span><div class="booking-radio-group"><label><input type="radio" name="gender" value="男性" required>男性</label><label><input type="radio" name="gender" value="女性">女性</label><label><input type="radio" name="gender" value="その他">その他</label></div></fieldset>
+          <fieldset class="booking-form-row booking-form-row-choice"><legend>健康保険証の有無</legend><span class="booking-required">必須</span><div class="booking-radio-group"><label><input type="radio" name="insurance" value="あり" required>あり</label><label><input type="radio" name="insurance" value="なし">なし</label></div></fieldset>
+          <div class="booking-form-row booking-form-row-notes"><label for="patient-notes">備考・症状</label><span class="booking-optional">任意</span><textarea id="patient-notes" name="notes" placeholder="気になる症状、医師へのご相談事項などがあればご記入ください。"></textarea></div>
+        </form>
+      </div>
+      <div class="booking-flow-actions"><a class="booking-flow-back" id="back-to-date" href="booking-date.html">戻る</a><button class="booking-flow-primary" type="submit" form="patient-form">入力内容を確認する <span aria-hidden="true">➧</span></button></div>
+    </section>
+  </main>
+  <footer class="site-footer"><div class="container footer-inner"><small>© 2026 佐藤医院. All Rights Reserved.</small><a href="privacy-policy.html">プライバシーポリシー</a></div></footer>
+</body></html>

@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="佐藤医院 予約一覧">
+  <title>予約一覧 | 佐藤医院 管理者</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/admin.css?v=20260910-1">
+  <link rel="stylesheet" href="css/booking-admin.css?v=8">
+  <link rel="stylesheet" href="css/booking-list.css?v=10">
+</head>
+<body class="admin-dashboard booking-admin-dashboard booking-list-dashboard">
+  <div class="booking-admin-layout">
+    <aside class="admin-sidebar booking-admin-sidebar" aria-label="管理者メニュー">
+      <a class="admin-brand" href="admin-top.html">
+        <img src="assets/images/logo.png" alt="佐藤医院 Sato Clinic">
+        <span>管理者システム</span>
+      </a>
+      <nav class="admin-sidebar-nav">
+        <section class="admin-nav-group">
+          <a class="admin-nav-heading" href="admin-info.html">
+            <svg class="admin-nav-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 9v6h4l5 4V5L7 9H3Zm12.5 1.1a4 4 0 0 1 0 3.8M17.7 7.3a8 8 0 0 1 0 9.4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span>お知らせ管理</span>
+          </a>
+          <div class="admin-nav-items">
+            <a href="admin-info.html"><span class="admin-dot"></span>お知らせ一覧</a>
+            <a href="admin-info-new.html"><span class="admin-dot"></span>新規作成</a>
+            <a href="admin-info.html#news-list"><span class="admin-dot"></span>編集</a>
+            <a href="admin-info.html?bulk=1#news-list"><span class="admin-dot"></span>一括公開／非公開</a>
+          </div>
+        </section>
+        <section class="admin-nav-group">
+          <a class="admin-nav-heading" href="admin-inquiry.html">
+            <svg class="admin-nav-icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2" fill="none" stroke="currentColor" stroke-width="2"/><path d="m4 7 8 6 8-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span>問い合わせ管理</span>
+          </a>
+          <div class="admin-nav-items">
+            <a href="admin-inquiry.html#inquiry-list"><span class="admin-dot"></span>問い合わせ一覧</a>
+            <a href="admin-inquiry.html#inquiry-list"><span class="admin-dot"></span>送信済みメッセージ</a>
+            <a href="admin-inquiry.html#inquiry-list"><span class="admin-dot"></span>削除済みメッセージ</a>
+          </div>
+        </section>
+        <section class="admin-nav-group">
+          <a class="admin-nav-heading is-active" href="booking-admin.html">
+            <svg class="admin-nav-icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="5" width="16" height="15" rx="2" fill="none" stroke="currentColor" stroke-width="2"/><path d="M8 3v4M16 3v4M4 9h16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M8 13h3v3H8z" fill="currentColor"/></svg>
+            <span>予約管理</span>
+          </a>
+          <div class="admin-nav-items">
+            <a class="is-current" href="booking-list.html"><span class="admin-dot"></span>予約一覧・予約状況管理</a>
+            <a href="booking-admin.html#booking-board"><span class="admin-dot"></span>予約枠管理</a>
+          </div>
+        </section>
+      </nav>
+      <a class="admin-sidebar-promo" href="index.html">
+        <span>地域に根差した医療</span>
+        <img src="assets/images/hospital_2.jpg" alt="佐藤医院の外観">
+        <strong><img src="assets/images/logo.png" alt="佐藤医院 Sato Clinic"></strong>
+      </a>
+    </aside>
+
+    <div class="booking-admin-shell">
+      <header class="booking-admin-topbar">
+        <button class="booking-admin-notice" type="button" aria-label="通知 1件"><img src="assets/images/icon-bell.png" alt=""><span>1</span></button>
+        <span class="topbar-divider" aria-hidden="true"></span>
+        <button class="booking-admin-account" type="button">佐藤医院 管理者<span aria-hidden="true">⌁</span></button>
+        <a class="booking-admin-logout" href="admin.html"><span aria-hidden="true">⇥</span> ログアウト</a>
+      </header>
+
+      <main class="booking-admin-main booking-list-main">
+        <div class="booking-list-heading">
+          <div class="booking-admin-heading">
+            <img class="heading-calendar" src="assets/images/icon-calendar-check.png" alt="">
+            <div><h1>予約一覧</h1><p>日付・時間ごとの予約を、スタッフが確認・管理できます。</p></div>
+          </div>
+        </div>
+
+        <div class="booking-list-announcement" id="booking-list-announcement" role="status" aria-live="polite" hidden></div>
+        <form class="booking-list-filters" id="booking-filters">
+          <label class="filter-field filter-date"><span>日付</span><span class="filter-control"><img src="assets/images/icon-calendar-check.png" alt=""><input type="date" name="date" value="2026-11-05"></span></label>
+          <label class="filter-field filter-keyword"><span>キーワード検索</span><span class="filter-control"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.8" cy="10.8" r="6.8"/><path d="m16 16 5 5"/></svg><input type="search" name="keyword" placeholder="お名前・電話番号で検索"></span></label>
+          <label class="filter-field"><span>予約種別</span><select name="type"><option value="all">すべて</option><option>一般診療</option><option>予防接種</option><option>健康診断</option></select></label>
+          <label class="filter-field"><span>時間帯</span><select name="period"><option value="all">すべて</option><option value="09:00-09:30">9:00～9:30</option><option value="09:30-10:00">9:30～10:00</option><option value="10:00-10:30">10:00～10:30</option><option value="10:30-11:00">10:30～11:00</option><option value="11:00-11:30">11:00～11:30</option><option value="11:30-12:00">11:30～12:00</option><option value="14:00-14:30">14:00～14:30</option><option value="14:30-15:00">14:30～15:00</option><option value="15:00-15:30">15:00～15:30</option><option value="15:30-16:00">15:30～16:00</option><option value="16:00-16:30">16:00～16:30</option><option value="16:30-17:00">16:30～17:00</option></select></label>
+          <div class="filter-actions">
+            <button class="filter-reset" type="reset"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 11a8 8 0 1 0 1 4M20 4v7h-7"/></svg>リセット</button>
+            <button class="filter-submit" type="submit"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.8" cy="10.8" r="6.8"/><path d="m16 16 5 5"/></svg>検索</button>
+          </div>
+        </form>
+
+        <section class="booking-admin-stats booking-list-stats" aria-label="本日の予約件数">
+          <article class="booking-admin-stat booking-admin-stat-total"><span class="stat-icon"><img src="assets/images/icon-calendar-clock.png" alt=""></span><div><h2>本日の予約件数</h2><p><strong>23</strong><b>件</b></p></div></article>
+          <a class="booking-admin-stat booking-admin-stat-general" href="#reservation-table"><span class="stat-icon"><img src="assets/images/icon-stethoscope.png" alt=""></span><div><h2>一般診療</h2><p><strong>12</strong><b>件</b></p></div><span class="stat-arrow">›</span></a>
+          <a class="booking-admin-stat booking-admin-stat-vaccine" href="#reservation-table"><span class="stat-icon"><img src="assets/images/icon-syringe.png" alt=""></span><div><h2>予防接種</h2><p><strong>7</strong><b>件</b></p></div><span class="stat-arrow">›</span></a>
+          <a class="booking-admin-stat" href="#reservation-table"><span class="stat-icon"><img src="assets/images/icon-heart.png" alt=""></span><div><h2>健康診断</h2><p><strong>4</strong><b>件</b></p></div><span class="stat-arrow">›</span></a>
+        </section>
+
+        <section class="booking-list-panel" id="reservation-table" aria-labelledby="reservation-list-title">
+          <div class="booking-list-panel-heading">
+            <h2 id="reservation-list-title"><svg class="list-heading-icon" viewBox="0 0 32 32" aria-hidden="true"><path d="M12 7h17M12 16h17M12 25h17"/><circle cx="4" cy="7" r="1.5"/><circle cx="4" cy="16" r="1.5"/><circle cx="4" cy="25" r="1.5"/></svg>予約一覧 <span data-result-count>（全23件）</span></h2>
+            <div class="booking-list-pagination"><label>表示件数 <select aria-label="表示件数"><option>50件</option><option>20件</option><option>10件</option></select></label><button type="button" aria-label="前のページ" disabled>‹</button><button class="page-active" type="button" aria-current="page">1</button><button type="button">2</button><button type="button" aria-label="次のページ">›</button></div>
+          </div>
+          <div class="booking-list-table-wrap">
+            <table class="booking-list-table">
+              <thead><tr><th scope="col"><img src="assets/images/icon-calendar-clock.png" alt="">予約時間 <span>↕</span></th><th scope="col"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg>お名前</th><th scope="col"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.6 13 13 20.6a2 2 0 0 1-2.8 0L3.4 13.8a2 2 0 0 1 0-2.8L11 3.4h7.5A2.5 2.5 0 0 1 21 5.9V13Z"/><circle cx="16.5" cy="7.5" r="1"/></svg>予約種別</th><th scope="col"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 16.5v3a2 2 0 0 1-2.2 2A19.8 19.8 0 0 1 10.2 18a19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 1.8 3.2 2 2 0 0 1 3.8 1h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.6a2 2 0 0 1-.5 2.1L7.8 8.6a16 16 0 0 0 6 6l1.2-1.2a2 2 0 0 1 2.1-.5c.8.3 1.7.6 2.6.7a2 2 0 0 1 1.3 1.9Z"/></svg>連絡先</th><th scope="col"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 12h4l3-8 5 16 3-8h5"/></svg>状況</th><th scope="col">操作</th></tr></thead>
+              <tbody>
+                <tr data-type="一般診療" data-period="morning" data-date="2026-11-05" data-time="09:00-09:30"><td data-label="予約時間"><span class="time-pill"><img src="assets/images/icon-calendar-clock.png" alt="">09:00 ～ 09:30</span></td><td data-label="お名前">佐藤 花子 様</td><td data-label="予約種別"><span class="booking-type type-general"><img src="assets/images/icon-stethoscope.png" alt="">一般診療</span></td><td data-label="連絡先"><span class="booking-phone">☎</span>03-1234-5678</td><td data-label="状況"><span class="booking-status status-received"><b>✓</b>受付済</span></td><td data-label="操作"><div class="booking-row-actions"><button type="button" class="booking-row-detail">詳細</button><details class="booking-status-actions"><summary aria-label="状況を変更">状況を変更</summary><div class="booking-status-menu"><button type="button" data-status="received">受付済にする</button><button type="button" data-status="scheduled">来院予定にする</button><button type="button" data-status="complete">完了にする</button><button type="button" class="booking-status-cancel" data-status="cancelled">キャンセルにする</button></div></details></div></td></tr>
+                <tr data-type="予防接種" data-period="morning" data-date="2026-11-05" data-time="09:30-10:00"><td data-label="予約時間"><span class="time-pill"><img src="assets/images/icon-calendar-clock.png" alt="">09:30 ～ 10:00</span></td><td data-label="お名前">田中 恒一  様</td><td data-label="予約種別"><span class="booking-type type-vaccine"><img src="assets/images/icon-syringe.png" alt="">予防接種</span></td><td data-label="連絡先"><span class="booking-phone">☎</span>090-2345-6789</td><td data-label="状況"><span class="booking-status status-scheduled"><img src="assets/images/icon-calendar-check.png" alt="">来院予定</span></td><td data-label="操作"><div class="booking-row-actions"><button type="button" class="booking-row-detail">詳細</button><details class="booking-status-actions"><summary aria-label="状況を変更">状況を変更</summary><div class="booking-status-menu"><button type="button" data-status="received">受付済にする</button><button type="button" data-status="scheduled">来院予定にする</button><button type="button" data-status="complete">完了にする</button><button type="button" class="booking-status-cancel" data-status="cancelled">キャンセルにする</button></div></details></div></td></tr>
+                <tr data-type="一般診療" data-period="morning" data-date="2026-11-05" data-time="10:00-10:30"><td data-label="予約時間"><span class="time-pill"><img src="assets/images/icon-calendar-clock.png" alt="">10:00 ～ 10:30</span></td><td data-label="お名前">鈴木 美咲  様</td><td data-label="予約種別"><span class="booking-type type-general"><img src="assets/images/icon-stethoscope.png" alt="">一般診療</span></td><td data-label="連絡先"><span class="booking-phone">☎</span>03-3456-7890</td><td data-label="状況"><span class="booking-status status-scheduled"><img src="assets/images/icon-calendar-check.png" alt="">来院予定</span></td><td data-label="操作"><div class="booking-row-actions"><button type="button" class="booking-row-detail">詳細</button><details class="booking-status-actions"><summary aria-label="状況を変更">状況を変更</summary><div class="booking-status-menu"><button type="button" data-status="received">受付済にする</button><button type="button" data-status="scheduled">来院予定にする</button><button type="button" data-status="complete">完了にする</button><button type="button" class="booking-status-cancel" data-status="cancelled">キャンセルにする</button></div></details></div></td></tr>
+                <tr data-type="健康診断" data-period="morning" data-date="2026-11-05" data-time="10:30-11:00"><td data-label="予約時間"><span class="time-pill"><img src="assets/images/icon-calendar-clock.png" alt="">10:30 ～ 11:00</span></td><td data-label="お名前">高橋大輁E 様</td><td data-label="予約種別"><span class="booking-type type-checkup"><img src="assets/images/icon-heart.png" alt="">健康診断</span></td><td data-label="連絡先"><span class="booking-phone">☎</span>080-4567-8901</td><td data-label="状況"><span class="booking-status status-scheduled"><img src="assets/images/icon-calendar-check.png" alt="">来院予定</span></td><td data-label="操作"><div class="booking-row-actions"><button type="button" class="booking-row-detail">詳細</button><details class="booking-status-actions"><summary aria-label="状況を変更">状況を変更</summary><div class="booking-status-menu"><button type="button" data-status="received">受付済にする</button><button type="button" data-status="scheduled">来院予定にする</button><button type="button" data-status="complete">完了にする</button><button type="button" class="booking-status-cancel" data-status="cancelled">キャンセルにする</button></div></details></div></td></tr>
+                <tr data-type="一般診療" data-period="morning" data-date="2026-11-05" data-time="11:00-11:30"><td data-label="予約時間"><span class="time-pill"><img src="assets/images/icon-calendar-clock.png" alt="">11:00 ～ 11:30</span></td><td data-label="お名前">伊藤 さくら 様</td><td data-label="予約種別"><span class="booking-type type-general"><img src="assets/images/icon-stethoscope.png" alt="">一般診療</span></td><td data-label="連絡先"><span class="booking-phone">☎</span>03-5678-9012</td><td data-label="状況"><span class="booking-status status-received"><b>✓</b>受付済</span></td><td data-label="操作"><div class="booking-row-actions"><button type="button" class="booking-row-detail">詳細</button><details class="booking-status-actions"><summary aria-label="状況を変更">状況を変更</summary><div class="booking-status-menu"><button type="button" data-status="received">受付済にする</button><button type="button" data-status="scheduled">来院予定にする</button><button type="button" data-status="complete">完了にする</button><button type="button" class="booking-status-cancel" data-status="cancelled">キャンセルにする</button></div></details></div></td></tr>
+                <tr data-type="予防接種" data-period="morning" data-date="2026-11-05" data-time="11:30-12:00"><td data-label="予約時間"><span class="time-pill"><img src="assets/images/icon-calendar-clock.png" alt="">11:30 ～ 12:00</span></td><td data-label="お名前">山本 隼 様</td><td data-label="予約種別"><span class="booking-type type-vaccine"><img src="assets/images/icon-syringe.png" alt="">予防接種</span></td><td data-label="連絡先"><span class="booking-phone">☎</span>090-6789-0123</td><td data-label="状況"><span class="booking-status status-scheduled"><img src="assets/images/icon-calendar-check.png" alt="">来院予定</span></td><td data-label="操作"><div class="booking-row-actions"><button type="button" class="booking-row-detail">詳細</button><details class="booking-status-actions"><summary aria-label="状況を変更">状況を変更</summary><div class="booking-status-menu"><button type="button" data-status="received">受付済にする</button><button type="button" data-status="scheduled">来院予定にする</button><button type="button" data-status="complete">完了にする</button><button type="button" class="booking-status-cancel" data-status="cancelled">キャンセルにする</button></div></details></div></td></tr>
+                <tr data-type="一般診療" data-period="afternoon" data-date="2026-11-05" data-time="14:00-14:30"><td data-label="予約時間"><span class="time-pill"><img src="assets/images/icon-calendar-clock.png" alt="">14:00 ～ 14:30</span></td><td data-label="お名前">中村 裕子 様</td><td data-label="予約種別"><span class="booking-type type-general"><img src="assets/images/icon-stethoscope.png" alt="">一般診療</span></td><td data-label="連絡先"><span class="booking-phone">☎</span>03-7890-1234</td><td data-label="状況"><span class="booking-status status-scheduled"><img src="assets/images/icon-calendar-check.png" alt="">来院予定</span></td><td data-label="操作"><div class="booking-row-actions"><button type="button" class="booking-row-detail">詳細</button><details class="booking-status-actions"><summary aria-label="状況を変更">状況を変更</summary><div class="booking-status-menu"><button type="button" data-status="received">受付済にする</button><button type="button" data-status="scheduled">来院予定にする</button><button type="button" data-status="complete">完了にする</button><button type="button" class="booking-status-cancel" data-status="cancelled">キャンセルにする</button></div></details></div></td></tr>
+                <tr data-type="健康診断" data-period="afternoon" data-date="2026-11-05" data-time="14:30-15:00"><td data-label="予約時間"><span class="time-pill"><img src="assets/images/icon-calendar-clock.png" alt="">14:30 ～ 15:00</span></td><td data-label="お名前">小林 健太  様</td><td data-label="予約種別"><span class="booking-type type-checkup"><img src="assets/images/icon-heart.png" alt="">健康診断</span></td><td data-label="連絡先"><span class="booking-phone">☎</span>080-8901-2345</td><td data-label="状況"><span class="booking-status status-received"><b>✓</b>受付済</span></td><td data-label="操作"><div class="booking-row-actions"><button type="button" class="booking-row-detail">詳細</button><details class="booking-status-actions"><summary aria-label="状況を変更">状況を変更</summary><div class="booking-status-menu"><button type="button" data-status="received">受付済にする</button><button type="button" data-status="scheduled">来院予定にする</button><button type="button" data-status="complete">完了にする</button><button type="button" class="booking-status-cancel" data-status="cancelled">キャンセルにする</button></div></details></div></td></tr>
+                <tr data-type="一般診療" data-period="afternoon" data-date="2026-11-05" data-time="15:00-15:30"><td data-label="予約時間"><span class="time-pill"><img src="assets/images/icon-calendar-clock.png" alt="">15:00 ～ 15:30</span></td><td data-label="お名前">加藤 恵  様</td><td data-label="予約種別"><span class="booking-type type-general"><img src="assets/images/icon-stethoscope.png" alt="">一般診療</span></td><td data-label="連絡先"><span class="booking-phone">☎</span>03-9012-3456</td><td data-label="状況"><span class="booking-status status-complete"><b>✓</b>完了</span></td><td data-label="操作"><div class="booking-row-actions"><button type="button" class="booking-row-detail">詳細</button><details class="booking-status-actions"><summary aria-label="状況を変更">状況を変更</summary><div class="booking-status-menu"><button type="button" data-status="received">受付済にする</button><button type="button" data-status="scheduled">来院予定にする</button><button type="button" data-status="complete">完了にする</button><button type="button" class="booking-status-cancel" data-status="cancelled">キャンセルにする</button></div></details></div></td></tr>
+                <tr data-type="予防接種" data-period="afternoon" data-date="2026-11-05" data-time="15:30-16:00"><td data-label="予約時間"><span class="time-pill"><img src="assets/images/icon-calendar-clock.png" alt="">15:30 ～ 16:00</span></td><td data-label="お名前">渡辺 翔太  様</td><td data-label="予約種別"><span class="booking-type type-vaccine"><img src="assets/images/icon-syringe.png" alt="">予防接種</span></td><td data-label="連絡先"><span class="booking-phone">☎</span>090-0123-4567</td><td data-label="状況"><span class="booking-status status-complete"><b>✓</b>完了</span></td><td data-label="操作"><div class="booking-row-actions"><button type="button" class="booking-row-detail">詳細</button><details class="booking-status-actions"><summary aria-label="状況を変更">状況を変更</summary><div class="booking-status-menu"><button type="button" data-status="received">受付済にする</button><button type="button" data-status="scheduled">来院予定にする</button><button type="button" data-status="complete">完了にする</button><button type="button" class="booking-status-cancel" data-status="cancelled">キャンセルにする</button></div></details></div></td></tr>
+                <tr data-type="一般診療" data-period="afternoon" data-date="2026-11-05" data-time="16:00-16:30"><td data-label="予約時間"><span class="time-pill"><img src="assets/images/icon-calendar-clock.png" alt="">16:00 ～ 16:30</span></td><td data-label="お名前">斎藤 由侁E 様</td><td data-label="予約種別"><span class="booking-type type-general"><img src="assets/images/icon-stethoscope.png" alt="">一般診療</span></td><td data-label="連絡先"><span class="booking-phone">☎</span>03-2345-6789</td><td data-label="状況"><span class="booking-status status-scheduled"><img src="assets/images/icon-calendar-check.png" alt="">来院予定</span></td><td data-label="操作"><div class="booking-row-actions"><button type="button" class="booking-row-detail">詳細</button><details class="booking-status-actions"><summary aria-label="状況を変更">状況を変更</summary><div class="booking-status-menu"><button type="button" data-status="received">受付済にする</button><button type="button" data-status="scheduled">来院予定にする</button><button type="button" data-status="complete">完了にする</button><button type="button" class="booking-status-cancel" data-status="cancelled">キャンセルにする</button></div></details></div></td></tr>
+                <tr data-type="健康診断" data-period="afternoon" data-date="2026-11-05" data-time="16:30-17:00"><td data-label="予約時間"><span class="time-pill"><img src="assets/images/icon-calendar-clock.png" alt="">16:30 ～ 17:00</span></td><td data-label="お名前">木村亮  様</td><td data-label="予約種別"><span class="booking-type type-checkup"><img src="assets/images/icon-heart.png" alt="">健康診断</span></td><td data-label="連絡先"><span class="booking-phone">☎</span>090-3456-7890</td><td data-label="状況"><span class="booking-status status-scheduled"><img src="assets/images/icon-calendar-check.png" alt="">来院予定</span></td><td data-label="操作"><div class="booking-row-actions"><button type="button" class="booking-row-detail">詳細</button><details class="booking-status-actions"><summary aria-label="状況を変更">状況を変更</summary><div class="booking-status-menu"><button type="button" data-status="received">受付済にする</button><button type="button" data-status="scheduled">来院予定にする</button><button type="button" data-status="complete">完了にする</button><button type="button" class="booking-status-cancel" data-status="cancelled">キャンセルにする</button></div></details></div></td></tr>
+                <tr class="booking-list-empty" hidden><td colspan="6">該当する予約はありません。</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+      </main>
+    </div>
+  </div>
+  <script src="js/booking-list.js?v=11" defer></script>
+</body>
+</html>

@@ -9,9 +9,11 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/admin.css?v=20260910-1">
-  <script src="js/news-data.js?v=20261102-1" defer></script>
+  <script src="js/news-data.js?v=20261104-1" defer></script>
+  <script src="js/inquiry-data.js?v=20261104-1" defer></script>
   <script src="js/admin-auth.js" defer></script>
-  <script src="js/admin-home-news.js?v=20261102-1" defer></script>
+  <script src="js/admin-home-news.js?v=20261104-1" defer></script>
+  <script src="js/admin-home-inquiries.js?v=20261104-1" defer></script>
 </head>
 <body class="admin-dashboard">
   <div class="admin-layout">
@@ -48,13 +50,13 @@
         </section>
 
         <section class="admin-nav-group">
-          <a class="admin-nav-heading" href="#today-reservations">
+          <a class="admin-nav-heading" href="booking-admin.html">
             <svg class="admin-nav-icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="5" width="16" height="15" rx="2" fill="none" stroke="currentColor" stroke-width="2"/><path d="M8 3v4M16 3v4M4 9h16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M8 13h3v3H8z" fill="currentColor"/></svg>
             <span>予約管理</span>
           </a>
           <div class="admin-nav-items">
-            <a href="#today-reservations"><span class="admin-dot"></span>予約一覧・予約状況管理</a>
-            <a href="#today-reservations"><span class="admin-dot"></span>予約枠管理</a>
+            <a href="booking-list.html"><span class="admin-dot"></span>予約一覧・予約状況管理</a>
+            <a href="booking-admin.html"><span class="admin-dot"></span>予約枠管理</a>
           </div>
         </section>
       </nav>
@@ -92,7 +94,7 @@
 
         <section class="admin-stats" aria-label="集計">
           <a class="admin-stat-card" href="#recent-news"><span class="admin-stat-icon"><img src="assets/images/icon_info.png" alt=""></span><span><b>公開中のお知らせ</b><strong data-news-public-count>—<small>件</small></strong></span><em>一覧を見る　›</em></a>
-          <a class="admin-stat-card" href="#recent-inquiries"><span class="admin-stat-icon">✉</span><span><b>未返信の問い合わせ</b><strong>3<small>件</small></strong></span><em>問い合わせ確認へ　›</em></a>
+          <a class="admin-stat-card" href="#recent-inquiries"><span class="admin-stat-icon">✉</span><span><b>未返信の問い合わせ</b><strong><span data-inquiry-unreplied-count>—</span><small>件</small></strong></span><em>問い合わせ確認へ　›</em></a>
           <a class="admin-stat-card" href="#today-reservations"><span class="admin-stat-icon"><img src="assets/images/icon_reservation.png" alt=""></span><span><b>本日の予約</b><strong>12<small>件</small></strong></span><em>予約状況を見る　›</em></a>
         </section>
 
@@ -116,12 +118,8 @@
         <div class="admin-bottom-grid">
           <section class="admin-panel" id="recent-inquiries" aria-labelledby="recent-inquiries-title">
             <div class="admin-panel-heading"><h2 id="recent-inquiries-title"><span class="admin-panel-icon admin-panel-icon--mail">✉</span>最近の問い合わせ</h2><a class="admin-panel-link" href="admin-inquiry.html">すべて見る　›</a></div>
-            <div class="admin-table-wrap"><table class="admin-table admin-table--compact"><thead><tr><th>受信日時</th><th>お名前</th><th>件名</th><th>対応状況</th></tr></thead><tbody>
-              <tr><td>2025/06/20 09:15</td><td>山田 花子 様</td><td>健診についての質問</td><td><span class="admin-status is-unhandled">未対応</span></td></tr>
-              <tr><td>2025/06/19 16:30</td><td>鈴木 一郎 様</td><td>予約の変更について</td><td><span class="admin-status is-progress">対応中</span></td></tr>
-              <tr><td>2025/06/18 11:02</td><td>田中 美咲 様</td><td>診療時間の確認</td><td><span class="admin-status is-done">対応済</span></td></tr>
-              <tr><td>2025/06/17 14:21</td><td>渡辺 健 様</td><td>予防接種について</td><td><span class="admin-status is-done">対応済</span></td></tr>
-              <tr><td>2025/06/16 10:05</td><td>中村 直子 様</td><td>初診の予約について</td><td><span class="admin-status is-done">対応済</span></td></tr>
+            <div class="admin-table-wrap"><table class="admin-table admin-table--compact"><thead><tr><th>受信日時</th><th>お名前</th><th>件名</th><th>対応状況</th></tr></thead><tbody id="recent-inquiries-tbody">
+              <tr><td colspan="4">問い合わせを読み込んでいます。</td></tr>
             </tbody></table></div>
           </section>
 
